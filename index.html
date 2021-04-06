@@ -24,7 +24,7 @@
   device-orientation-permission-ui="enabled: false"
   vr-mode-ui="enabled: false">
 
-        <video id="vid" src="sakura.mp4"
+        <video id="vid" src="wall.mp4"
         preload="auto"
         respose-type="arraybuffer"
         loop="true"
@@ -32,16 +32,15 @@
         crossorigin
         webkit-playsinline
         muted
-        autoplay>
+        autoplay
+        position="0 0 0" rotation="-90 0 0" scale="5 2 2" material="shader: chromakey; color: 0.1 0.9 0.2"
+        
+        >
       </video>
 			
      
 
-       <a-marker type='pattern'
-       url='patter.patt'
-       videohandler>
- <a-video src="#vid" position="0 0 0" rotation="-90 0 0" scale="5 2 2" material="shader: chromakey; color: 0.1 0.9 0.2"></a-video>
-</a-marker>
+
 	   
 
 
