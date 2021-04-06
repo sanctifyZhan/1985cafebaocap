@@ -20,9 +20,8 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 
-  <a-scene embedded arjs='debugUIEnabled:false; trackingMethod: best;'
-  device-orientation-permission-ui="enabled: false"
-  vr-mode-ui="enabled: false">
+   <a-scene embedded arjs='debugUIEnabled:false; trackingMethod: best;'
+        device-orientation-permission-ui="enabled: false" vr-mode-ui="enabled: false" loading-screen="enabled:false" precision: mediump>
   <a-assets>
         <video id="vid" src="w1.mp4"
         preload="auto"
@@ -89,7 +88,7 @@ color="red">
                      position="0 3 -7" height="2" width="2">
             </a-image>
 
-<a-entity camera position="0 0. 0"></a-entity>
+<a-entity camera position="0 1. 0"></a-entity>
 
             </a-scene>
 			
