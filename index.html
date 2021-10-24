@@ -128,16 +128,21 @@
     }
     //let audio = new Audio('Doo Bee Di Boy.mp3');
     let audio = new Audio('captureSound.mp3');
-    let take_photo_btn = document.querySelector('#take-exittoapp');
+    
     let take_exittoapp_btn = document.querySelector('#take-photo');
-    let take_preview = document.querySelector('#take-preview');
+    let take_photo_btn = document.querySelector('#take-exittoapp');
+    let take_preview_btn = document.querySelector('#take-preview');
 
-    take_photo_btn.addEventListener("click", function (e) {
+    take_exittoapp_btn.addEventListener("click", function (e) {
         window.close();
     });
     
     take_photo_btn.addEventListener("click", function (e) {
         audio.play();
+    });
+    
+     take_preview_btn.addEventListener("click", function (e) {
+        window.open('https://www.google.com/','_blank');
     });
     
     
