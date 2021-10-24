@@ -134,7 +134,8 @@
     let take_preview_btn = document.querySelector('#take-preview');
 
     take_exittoapp_btn.addEventListener("click", function (e) {
-        close();
+        let newwin = open('https://sanctifyzhan.github.io/1985cafebaocap/');
+        newwin.close();
     });
     
     take_photo_btn.addEventListener("click", function (e) {
