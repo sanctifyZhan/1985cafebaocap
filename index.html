@@ -165,18 +165,20 @@ color="red">
            //    var v = document.querySelector('#video');
 //  v.play();  <a-video src="#vid" position="0 0 -3" rotation="-150 0 0" scale="2 2 2" material="shader: chromakey; color: 0.1 0.9 0.2"></a-video>
  
+	let video = document.getElementById("vid");
             document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction, false);  
- function yourFunction(e) {
+ 	function yourFunction(e) {
          let myEl = document.querySelector("#aVideoHide");
-            aimage11.setAttribute('position', '-15 -15 9');
+           video.setAttribute('position', '-15 -15 9');
+		 myEl.setAttribute('position', '-15 -15 9');
         
         }
 	let audio = new Audio('Doo Bee Di Boy.mp3');
-        //declare variables and initialize
-	let take_photo_btn = document.querySelector('#take-photo');
-	take_photo_btn.addEventListener("click", function (e) {
-
+	
+	setTimeout(function () {
+                     
 	audio.play();
-	});
+                }, 1000);
+	
 </script>
 </html>
