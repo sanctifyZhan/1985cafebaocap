@@ -134,7 +134,7 @@
     let take_preview_btn = document.querySelector('#take-preview');
 
     take_exittoapp_btn.addEventListener("click", function (e) {
-        setTimeout (window.close, 5000);
+        open(location, '_self').close();
     });
     
     take_photo_btn.addEventListener("click", function (e) {
