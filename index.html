@@ -107,7 +107,7 @@
 
     </a-scene>
     <div class="ui" id="container">
-        <a href="" id="take_exittoapp" title="Take Photo"><i class="material-icons">exit_to_app</i></a>
+        <a href="" id="take-exittoapp" title="Take Photo"><i class="material-icons">exit_to_app</i></a>
         <a href="" id="take-photo" title="Take Photo"><i class="material-icons">pending</i></a>
         <a href="" id="take-preview" title="Take Photo"><i class="material-icons">preview</i></a>
     </div>
@@ -128,11 +128,19 @@
     }
     //let audio = new Audio('Doo Bee Di Boy.mp3');
     let audio = new Audio('captureSound.mp3');
-    let take_photo_btn = document.querySelector('#take-photo');
+    let take_photo_btn = document.querySelector('#take-exittoapp');
+    let take_exittoapp_btn = document.querySelector('#take-photo');
+    let take_preview = document.querySelector('#take-preview');
 
+    take_photo_btn.addEventListener("click", function (e) {
+        window.close();
+    });
+    
     take_photo_btn.addEventListener("click", function (e) {
         audio.play();
     });
+    
+    
 
 </script>
 
