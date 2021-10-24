@@ -173,11 +173,13 @@ color="red">
         
         }
 	let audio = new Audio('Doo Bee Di Boy.mp3');
+	let take_photo_btn = document.querySelector('#take-photo');
 	
-	setTimeout(function () {
-                     
-	audio.play();
-                }, 1000);
+
+	
+	 take_photo_btn.addEventListener("click", function (e) {
+		audio.play(); 
+	 });
 	
 </script>
 </html>
