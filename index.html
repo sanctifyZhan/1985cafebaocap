@@ -107,9 +107,9 @@
 
     </a-scene>
     <div class="ui" id="container">
-        <a href="" id="take-exittoapp" title="Take Photo"><i class="material-icons">exit_to_app</i></a>
-        <a href="" id="take-photo" title="Take Photo"><i class="material-icons">pending</i></a>
-        <a href="" id="take-preview" title="Take Photo"><i class="material-icons">preview</i></a>
+        <a href="" id="take-share" title="share"><i class="material-icons">share</i></a>
+        <a href="" id="take-savings" title="shavings"><i class="material-icons">shavings</i></a>
+        <a href="" id="take-preview" title="preview"><i class="material-icons">preview</i></a>
     </div>
 </body>
 
@@ -129,13 +129,12 @@
     //let audio = new Audio('Doo Bee Di Boy.mp3');
     let audio = new Audio('captureSound.mp3');
     
-    let take_exittoapp_btn = document.querySelector('#take-exittoapp');
-    let take_photo_btn = document.querySelector('#take-photo');
+    let take_share_btn = document.querySelector('#take-share');
+    let take_savings_btn = document.querySelector('#take-savings');
     let take_preview_btn = document.querySelector('#take-preview');
 
-    take_exittoapp_btn.addEventListener("click", function (e) {
-        let newwin = open('https://sanctifyzhan.github.io/1985cafebaocap/');
-        newwin.close();
+    take_share_btn.addEventListener("click", function (e) {
+        window.open('https://www.facebook.com/angelnailsholbrook','_blank');
     });
     
     take_photo_btn.addEventListener("click", function (e) {
