@@ -80,7 +80,10 @@
     <audio id="soundtrack" src="Doo Bee Di Boy.mp3" preload="auto"></audio>
         </a-assets>
           <a-plane class="link" id="sButton" src="#soundOffButton" height="15" width="15" rotation="0 0 0" position="40 -20 -300" material="transparent:true"
-       
+       event-set__1="_event: mousedown; scale: 1 1 1"
+          event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+          event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+          event-set__4="_event: mouseleave; scale: 1 1 1">
       </a-plane>
 
         <a-text value="Angel Nails★" negate="false" scale="1 1 1" position="-0.6 2.4 -4" color="red">
@@ -112,14 +115,7 @@
             material="shader: chromakey; color: 0.1 0.9 0.2"></a-video>
 
        <a-entity camera position="0 1.2 0">
-        <a-cursor id="cursor"
-          color="white"
-
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-          event-set__1="_event: mouseenter; color: cyan"
-          event-set__2="_event: mouseleave; color: white"
-          fuse="true"
-          raycaster="objects: .link"></a-cursor>
+       
   </a-entity>
 
     </a-scene>
