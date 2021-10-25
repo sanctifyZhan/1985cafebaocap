@@ -74,6 +74,10 @@
             <video id="vid" src="w1.mp4" preload="auto" respose-type="arraybuffer" playsinline crossorigin
                 webkit-playsinline muted autoplay>
             </video>
+            
+             <img id="soundButton" src="sourceimages/sound.png" >
+    <img id="soundOffButton" src="sourceimages/soundOff.png" >
+    <audio id="soundtrack" src="Doo Bee Di Boy.mp3" preload="auto"></audio>
         </a-assets>
 
         <a-text value="Angel Nails★" negate="false" scale="1 1 1" position="-0.6 2.4 -4" color="red">
@@ -131,19 +135,16 @@ let take_savings_btn = document.querySelector('#take-savings');
 let take_preview_btn = document.querySelector('#take-preview');
 
 take_share_btn.addEventListener("click", function (e) {
-    audio.pause();
 window.open('https://www.facebook.com/angelnailsholbrook','_blank');
 });
     
 let audio = new Audio('Doo Bee Di Boy.mp3');
 take_savings_btn.addEventListener("click", function (e) {
 
-    audio.volume = 0.1;
-    audio.play();
+
 });
 
 take_preview_btn.addEventListener("click", function (e) {
-    audio.pause();
 window.open('https://www.yelp.com/biz/angel-nails-holbrook-2','_blank');
 });    
 </script>
