@@ -125,7 +125,7 @@ $('#container').fadeIn('slow');
 }
 let audio = new Audio('Doo Bee Di Boy.mp3');
 //let audio = new Audio('captureSound.mp3');
-audio.play();
+
 let take_share_btn = document.querySelector('#take-share');
 let take_savings_btn = document.querySelector('#take-savings');
 let take_preview_btn = document.querySelector('#take-preview');
@@ -147,6 +147,10 @@ console.log("2");
 take_preview_btn.addEventListener("click", function (e) {
 window.open('https://www.yelp.com/biz/angel-nails-holbrook-2','_blank');
 });
+    
+       setTimeout(function () {
+                       audio.play();
+                    }, 5000);
 
 
 
