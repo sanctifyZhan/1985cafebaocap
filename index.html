@@ -22,6 +22,26 @@
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style>
+    
+    .overlay {
+            position: fixed;
+            /* Sit on top of the page content */
+            width: 100%;
+            /* Full width (cover the whole page) */
+            height: 100%;
+            /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("backgroundWhile.PNG");
+            /*   background-color:#ffffff; Black background with opacity */
+            z-index: 2;
+            /* Specify a stack order in case you're using a different order for other elements */
+            cursor: pointer;
+            /* Add a pointer on hover */
+        }
+    
     .ui {
         position: absolute;
         z-index: 100;
@@ -139,17 +159,28 @@ $('#container').fadeIn('slow');
 let take_share_btn = document.querySelector('#take-share');
 let take_savings_btn = document.querySelector('#take-savings');
 let take_preview_btn = document.querySelector('#take-preview');
+    let sceneElement = document.querySelector("a-scene");
+    let myPix = new Array("Assetss/01.jpg", "Assetss/02.jpg", "Assetss/03.jpg", "Assetss/04.jpg", "Assetss/05.jpg", "Assetss/06.jpg", "Assetss/07.jpg", "Assetss/08.jpg", "Assetss/09.jpg", "Assetss/10.jpg", "Assetss/11.jpg", "Assetss/12.jpg");
+        var myobj = document.getElementById("container");
 
 take_share_btn.addEventListener("click", function (e) {
 window.open('https://www.facebook.com/angelnailsholbrook','_blank');
 });
     
 take_savings_btn.addEventListener("click", function (e) {
+    sceneElement.classList.add("overlay");
+            e.preventDefault();
+    myobj.remove();
 });
 
 take_preview_btn.addEventListener("click", function (e) {
 window.open('https://www.yelp.com/biz/angel-nails-holbrook-2','_blank');
 });    
+    
+    function choosePic() {
+            let randomNum = Math.floor(Math.random() * myPix.length);
+            document.getElementById("my-image").src = myPix[randomNum];
+        }
     
     var sbutt = document.querySelector('#sButton');
   var strack = document.querySelector('#soundtrack');
