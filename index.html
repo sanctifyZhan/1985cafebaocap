@@ -161,13 +161,15 @@ let take_savings_btn = document.querySelector('#take-savings');
 let take_preview_btn = document.querySelector('#take-preview');
     let sceneElement = document.querySelector("a-scene");
     let myPix = new Array("Assetss/01.jpg", "Assetss/02.jpg", "Assetss/03.jpg", "Assetss/04.jpg", "Assetss/05.jpg", "Assetss/06.jpg", "Assetss/07.jpg", "Assetss/08.jpg", "Assetss/09.jpg", "Assetss/10.jpg", "Assetss/11.jpg", "Assetss/12.jpg");
-        var myobj = document.getElementById("container");
+    var myobj = document.getElementById("container");
+    let audio = new Audio('captureSound.mp3');
 
 take_share_btn.addEventListener("click", function (e) {
 window.open('https://www.facebook.com/angelnailsholbrook','_blank');
 });
     
 take_savings_btn.addEventListener("click", function (e) {
+    audio.play();
     sceneElement.classList.add("overlay");
             e.preventDefault();
     myobj.remove();
