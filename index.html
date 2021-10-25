@@ -123,8 +123,7 @@ document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction
 function yourFunction(e) {
 $('#container').fadeIn('slow');
 }
-let audio = new Audio('Doo Bee Di Boy.mp3');
-    audio.volume = 0.1;
+
 //let audio = new Audio('captureSound.mp3');
 
 let take_share_btn = document.querySelector('#take-share');
@@ -137,7 +136,8 @@ window.open('https://www.facebook.com/angelnailsholbrook','_blank');
 });
 
 take_savings_btn.addEventListener("click", function (e) {
-audio.stop();
+let audio = new Audio('Doo Bee Di Boy.mp3');
+    audio.volume = 0.1;
 });
 
 take_preview_btn.addEventListener("click", function (e) {
