@@ -13,10 +13,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- include ar.js -->
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.0/aframe/build/aframe-ar.js"></script>
-    <!-- to load .ply model -->
-
+    <!-- to load .ply model
+       <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    -->
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/v6.0.1/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
-<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+ 
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style>
@@ -113,41 +115,40 @@
 </body>
 
 <script>
-    //    <script src="https://rawgit.com/donmccurdy/aframe-extras/v6.0.1/dist/aframe-extras.loaders.min.js"></script>
-     $('#container').hide();
-    let video = document.getElementById("vid");
-    video.play();
+$('#container').hide();
+let video = document.getElementById("vid");
+video.play();
 
-   document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction, false);
-        function yourFunction(e) {
-            $('#container').fadeIn('slow');
-        }
-    let audio = new Audio('Doo Bee Di Boy.mp3');
-    //let audio = new Audio('captureSound.mp3');
-    
-    let take_share_btn = document.querySelector('#take-share');
-    let take_savings_btn = document.querySelector('#take-savings');
-    let take_preview_btn = document.querySelector('#take-preview');
+document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction, false);
+function yourFunction(e) {
+$('#container').fadeIn('slow');
+}
+let audio = new Audio('Doo Bee Di Boy.mp3');
+//let audio = new Audio('captureSound.mp3');
 
-    take_share_btn.addEventListener("click", function (e) {
-        window.open('https://www.facebook.com/angelnailsholbrook','_blank');
-    });
-    
-    take_savings_btn.addEventListener("click", function (e) {
-            console.log("1");
-         setTimeout(function () {
-               audio.play();
-            }, 3000);
-    
-        
-        console.log("2");
-    });
-    
-     take_preview_btn.addEventListener("click", function (e) {
-        window.open('https://www.yelp.com/biz/angel-nails-holbrook-2','_blank');
-    });
-    
-    
+let take_share_btn = document.querySelector('#take-share');
+let take_savings_btn = document.querySelector('#take-savings');
+let take_preview_btn = document.querySelector('#take-preview');
+
+take_share_btn.addEventListener("click", function (e) {
+window.open('https://www.facebook.com/angelnailsholbrook','_blank');
+});
+
+take_savings_btn.addEventListener("click", function (e) {
+console.log("1");
+setTimeout(function () {
+audio.play();
+}, 3000);
+
+
+console.log("2");
+});
+
+take_preview_btn.addEventListener("click", function (e) {
+window.open('https://www.yelp.com/biz/angel-nails-holbrook-2','_blank');
+});
+
+
 
 </script>
 
