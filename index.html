@@ -134,23 +134,18 @@ take_share_btn.addEventListener("click", function (e) {
     audio.pause();
 window.open('https://www.facebook.com/angelnailsholbrook','_blank');
 });
-
-take_savings_btn.addEventListener("click", function (e) {
+    
 let audio = new Audio('Doo Bee Di Boy.mp3');
+take_savings_btn.addEventListener("click", function (e) {
+
     audio.volume = 0.1;
+    audio.play();
 });
 
 take_preview_btn.addEventListener("click", function (e) {
     audio.pause();
 window.open('https://www.yelp.com/biz/angel-nails-holbrook-2','_blank');
-});
-    
-       setTimeout(function () {
-                       audio.play();
-                    }, 5000);
-
-
-
+});    
 </script>
 
 </html>
