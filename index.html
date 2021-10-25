@@ -114,18 +114,14 @@
 </body>
 
 <script>
+     $('#container').hide();
     let video = document.getElementById("vid");
     video.play();
 
-    //    var v = document.querySelector('#video');
-    //  v.play();  <a-video src="#vid" position="0 0 -3" rotation="-150 0 0" scale="2 2 2" material="shader: chromakey; color: 0.1 0.9 0.2"></a-video>
-
-    document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction, false);
-    function yourFunction(e) {
-        let myEl = document.querySelector("#aVideoHide");
-        video.setAttribute('position', '-15 -15 9');
-        myEl.setAttribute('position', '-15 -15 9');
-    }
+   document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction, false);
+        function yourFunction(e) {
+            $('#container').fadeIn('slow');
+        }
     let audio = new Audio('Doo Bee Di Boy.mp3');
     //let audio = new Audio('captureSound.mp3');
     
