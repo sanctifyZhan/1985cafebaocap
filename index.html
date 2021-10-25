@@ -18,30 +18,29 @@
     -->
     <script src="https://rawgit.com/donmccurdy/aframe-extras/v6.0.1/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
- 
+
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style>
-    
     .overlay {
-            position: fixed;
-            /* Sit on top of the page content */
-            width: 100%;
-            /* Full width (cover the whole page) */
-            height: 100%;
-            /* Full height (cover the whole page) */
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url("backgroundWhile.PNG");
-            /*   background-color:#ffffff; Black background with opacity */
-            z-index: 2;
-            /* Specify a stack order in case you're using a different order for other elements */
-            cursor: pointer;
-            /* Add a pointer on hover */
-        }
-    
+        position: fixed;
+        /* Sit on top of the page content */
+        width: 100%;
+        /* Full width (cover the whole page) */
+        height: 100%;
+        /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("backgroundWhile.PNG");
+        /*   background-color:#ffffff; Black background with opacity */
+        z-index: 2;
+        /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer;
+        /* Add a pointer on hover */
+    }
+
     .ui {
         position: absolute;
         z-index: 100;
@@ -94,17 +93,16 @@
             <video id="vid" src="w1.mp4" preload="auto" respose-type="arraybuffer" playsinline crossorigin
                 webkit-playsinline muted autoplay>
             </video>
-            
-             <img id="soundButton" src="sound.jpeg" >
-    <img id="soundOffButton" src="offsound.png" >
-    <audio id="soundtrack" src="Doo Bee Di Boy.mp3" preload="auto"></audio>
+
+            <img id="soundButton" src="sound.jpeg">
+            <img id="soundOffButton" src="offsound.png">
+            <audio id="soundtrack" src="Doo Bee Di Boy.mp3" preload="auto"></audio>
         </a-assets>
-          <a-plane class="link" id="sButton" src="#soundOffButton" height="15" width="15" rotation="0 0 0" position="40 -20 -300" material="transparent:true"
-       event-set__1="_event: mousedown; scale: 1 1 1"
-          event-set__2="_event: mouseup; scale: 1.2 1.2 1"
-          event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
-          event-set__4="_event: mouseleave; scale: 1 1 1">
-      </a-plane>
+        <a-plane class="link" id="sButton" src="#soundOffButton" height="15" width="15" rotation="0 0 0"
+            position="40 -20 -300" material="transparent:true" event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1" event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1">
+        </a-plane>
 
         <a-text value="Angel Nails★" negate="false" scale="1 1 1" position="-0.6 2.4 -4" color="red">
         </a-text>
@@ -134,9 +132,9 @@
         <a-video src="#vid" position="-0.02 1.3 -3" rotation="-180 0 0" scale="1.6 2.7 1"
             material="shader: chromakey; color: 0.1 0.9 0.2"></a-video>
 
-       <a-entity camera position="0 1.2 0">
-       
-  </a-entity>
+        <a-entity camera position="0 1.2 0">
+
+        </a-entity>
 
     </a-scene>
     <div class="ui" id="container">
@@ -147,64 +145,64 @@
 </body>
 
 <script>
-$('#container').hide();
-let video = document.getElementById("vid");
-video.play();
+    $('#container').hide();
+    let video = document.getElementById("vid");
+    video.play();
 
-document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction, false);
-function yourFunction(e) {
-$('#container').fadeIn('slow');
-}
+    document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction, false);
+    function yourFunction(e) {
+        $('#container').fadeIn('slow');
+    }
 
-let take_share_btn = document.querySelector('#take-share');
-let take_savings_btn = document.querySelector('#take-savings');
-let take_preview_btn = document.querySelector('#take-preview');
+    let take_share_btn = document.querySelector('#take-share');
+    let take_savings_btn = document.querySelector('#take-savings');
+    let take_preview_btn = document.querySelector('#take-preview');
     let sceneElement = document.querySelector("a-scene");
     let myPix = new Array("Assetss/01.jpg", "Assetss/02.jpg", "Assetss/03.jpg", "Assetss/04.jpg", "Assetss/05.jpg", "Assetss/06.jpg", "Assetss/07.jpg", "Assetss/08.jpg", "Assetss/09.jpg", "Assetss/10.jpg", "Assetss/11.jpg", "Assetss/12.jpg");
     var myobj = document.getElementById("container");
     let audio = new Audio('captureSound.mp3');
 
-take_share_btn.addEventListener("click", function (e) {
-window.open('https://www.facebook.com/angelnailsholbrook','_blank');
-});
-    
-take_savings_btn.addEventListener("click", function (e) {
-    audio.play();
-    sceneElement.classList.add("overlay");
-            e.preventDefault();
-    myobj.remove();
-});
+    take_share_btn.addEventListener("click", function (e) {
+        window.open('https://www.facebook.com/angelnailsholbrook', '_blank');
+    });
 
-take_preview_btn.addEventListener("click", function (e) {
-window.open('https://www.yelp.com/biz/angel-nails-holbrook-2','_blank');
-});    
-    
+    take_savings_btn.addEventListener("click", function (e) {
+        audio.play();
+        sceneElement.classList.add("overlay");
+        e.preventDefault();
+        myobj.remove();
+    });
+
+    take_preview_btn.addEventListener("click", function (e) {
+        window.open('https://www.yelp.com/biz/angel-nails-holbrook-2', '_blank');
+    });
+
     function choosePic() {
-            let randomNum = Math.floor(Math.random() * myPix.length);
-            document.getElementById("my-image").src = myPix[randomNum];
-        }
-    
-    var sbutt = document.querySelector('#sButton');
-  var strack = document.querySelector('#soundtrack');
-
-  sbutt.addEventListener('mouseenter', playButtonAudio);
-
-  var scene = document.querySelector('a-scene');
-  if (scene.hasLoaded) {
-    playButtonAudio();
-    } else {
-      scene.addEventListener('click', playButtonAudio);
-  }
- 
-  function playButtonAudio () {        
-    if (strack.paused) {
-      strack.play();
-      sbutt.setAttribute('material', "src: #soundButton");          
-    } else {
-      strack.pause();
-      sbutt.setAttribute('material', "src: #soundOffButton");          
+        let randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("my-image").src = myPix[randomNum];
     }
-  }
+
+    var sbutt = document.querySelector('#sButton');
+    var strack = document.querySelector('#soundtrack');
+
+    sbutt.addEventListener('mouseenter', playButtonAudio);
+
+    var scene = document.querySelector('a-scene');
+    if (scene.hasLoaded) {
+        playButtonAudio();
+    } else {
+        scene.addEventListener('click', playButtonAudio);
+    }
+
+    function playButtonAudio() {
+        if (strack.paused) {
+            strack.play();
+            sbutt.setAttribute('material', "src: #soundButton");
+        } else {
+            strack.pause();
+            sbutt.setAttribute('material', "src: #soundOffButton");
+        }
+    }
 </script>
 
 </html>
