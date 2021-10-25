@@ -1,70 +1,151 @@
-<!DOCTYPE>
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
-    <title>Sound Demo</title>
-    <meta name="description" content="Audio Button Demo">
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-  </head>
-  <body>
 
-<a-scene background="blue">
-  <a-assets>
-    <img id="soundButton" src="logo.jpg" >
-    <img id="soundOffButton" src="logo.jpg" >
-    <audio id="soundtrack" src="Doo Bee Di Boy.mp3" preload="auto"></audio>
-  </a-assets>
+<head>
+    <title>
+        Angel Nails 781MA
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable">
 
-  <a-sky color="#00AEEF"></a-sky>
+    <script src="https://aframe.io/releases/1.0.2/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- include ar.js -->
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.0/aframe/build/aframe-ar.js"></script>
+    <!-- to load .ply model
+       <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    -->
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/v6.0.1/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+ 
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+    .ui {
+        position: absolute;
+        z-index: 100;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 10px 15px 30px;
+        text-align: center;
+        box-sizing: border-box;
+    }
 
-  <a-plane class="link" id="sButton" src="#soundOffButton" height="40" width="40" rotation="0 0 0" position="0 0 -300" material="transparent:true"
-          event-set__1="_event: mousedown; scale: 1 1 1"
-          event-set__2="_event: mouseup; scale: 1.2 1.2 1"
-          event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
-          event-set__4="_event: mouseleave; scale: 1 1 1">
-      </a-plane>
+    .ui a {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background-color: #ffffff;
+        line-height: 100%;
+        color: #303030;
+        margin: 10px 3px;
+        border-radius: 50%;
+        position: relative;
+    }
 
+    .ui a i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
-  <a-entity camera look-controls>
-        <a-cursor id="cursor"
-          color="white"
+    .ui a:active {
+        color: #ff0000;
+    }
 
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-          event-set__1="_event: mouseenter; color: cyan"
-          event-set__2="_event: mouseleave; color: white"
-          fuse="true"
-          raycaster="objects: .link"></a-cursor>
-  </a-entity>
+    .ui a.disabled {
+        pointer-events: none;
+        color: #cccccc;
+    }
+</style>
 
+<body style='margin : 0px; overflow: hidden;'>
 
-</a-scene>
+    <a-scene embedded arjs='debugUIEnabled:false; trackingMethod: best;'
+        device-orientation-permission-ui="enabled: false" vr-mode-ui="enabled: false" loading-screen="enabled:false"
+        precision: mediump>
+        <a-assets>
+            <video id="vid" src="w1.mp4" preload="auto" respose-type="arraybuffer" playsinline crossorigin
+                webkit-playsinline muted autoplay>
+            </video>
+        </a-assets>
 
+        <a-text value="Angel Nails★" negate="false" scale="1 1 1" position="-0.6 2.4 -4" color="red">
+        </a-text>
+
+        <a-text value="WeedDay" negate="false" scale="1 1 1" position="-0.3 2.3 -5" color="yellow">
+        </a-text>
+
+        <a-text value="9:30 ~ 19:00" negate="false" scale="1 1 1" position="-0.6 2 -5" color="purple">
+        </a-text>
+
+        <a-text value="Sartuday" negate="false" scale="1 1 1" position="-0.3 1.8 -5" color="yellow">
+        </a-text>
+
+        <a-text value="9:00 ~ 19:00" negate="false" scale="1 1 1" position="-0.6 1.6 -5" color="purple">
+        </a-text>
+
+        <a-text value="Sunday" negate="false" scale="1 1 1" position="-0.3 1.4 -5" color="yellow">
+        </a-text>
+
+        <a-text value="11:00 ~ 17:00" negate="false" scale="1 1 1" position="-0.6 1.2 -5" color="purple">
+        </a-text>
+
+        <a-text value="781 S Franklin St Holbrook, MA 02343" negate="false" scale="1 1 1" position="-2 -1 -9"
+            color="red">
+        </a-text>
+
+        <a-video src="#vid" position="-0.02 1.3 -3" rotation="-180 0 0" scale="1.6 2.7 1"
+            material="shader: chromakey; color: 0.1 0.9 0.2"></a-video>
+
+        <a-entity camera position="0 1.2 0"></a-entity>
+
+    </a-scene>
+    <div class="ui" id="container">
+        <a href="" id="take-share" title="share"><i class="material-icons">share</i></a>
+        <a href="" id="take-savings" title="shavings"><i class="material-icons">savings</i></a>
+        <a href="" id="take-preview" title="preview"><i class="material-icons">preview</i></a>
+    </div>
+</body>
 
 <script>
+$('#container').hide();
+let video = document.getElementById("vid");
+video.play();
 
-  var sbutt = document.querySelector('#sButton');
-  var strack = document.querySelector('#soundtrack');
+document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction, false);
+function yourFunction(e) {
+$('#container').fadeIn('slow');
+}
 
-  sbutt.addEventListener('mouseenter', playButtonAudio);
+//let audio = new Audio('captureSound.mp3');
 
-  var scene = document.querySelector('a-scene');
-  if (scene.hasLoaded) {
-    playButtonAudio();
-    } else {
-      scene.addEventListener('click', playButtonAudio);
-  }
+let take_share_btn = document.querySelector('#take-share');
+let take_savings_btn = document.querySelector('#take-savings');
+let take_preview_btn = document.querySelector('#take-preview');
 
-  function playButtonAudio () {        
-    if (strack.paused) {
-      strack.play();
-      sbutt.setAttribute('material', "src: #soundButton");          
-    } else {
-      strack.pause();
-      sbutt.setAttribute('material', "src: #soundOffButton");          
-    }
-  }
+take_share_btn.addEventListener("click", function (e) {
+    audio.pause();
+window.open('https://www.facebook.com/angelnailsholbrook','_blank');
+});
+    
+let audio = new Audio('Doo Bee Di Boy.mp3');
+take_savings_btn.addEventListener("click", function (e) {
 
+    audio.volume = 0.1;
+    audio.play();
+});
 
-
+take_preview_btn.addEventListener("click", function (e) {
+    audio.pause();
+window.open('https://www.yelp.com/biz/angel-nails-holbrook-2','_blank');
+});    
 </script>
+
+</html>
