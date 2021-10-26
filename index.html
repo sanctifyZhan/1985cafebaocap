@@ -100,6 +100,7 @@
 
             <img id="my-image">
         </a-assets>
+        <a-box id ="haii" material="src: #soundButton">
 
         <a-image src="#my-image" id="aimage" position="0 0 -5" visible="false" height="0.9" width="1.2">
         </a-image>
@@ -196,7 +197,7 @@
 
     sbutt.addEventListener('mouseenter', playButtonAudio);
 
-    var scene = document.querySelector('a-scene');
+    var scene = document.querySelector('#haii');
     if (scene.hasLoaded) {
         playButtonAudio();
     } else {
