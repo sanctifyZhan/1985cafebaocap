@@ -182,34 +182,35 @@
     });
 
     take_preview_btn.addEventListener("click", function (e) {
-        //window.open('https://www.yelp.com/biz/angel-nails-holbrook-2', '_blank');
-        var sbutt = document.querySelector('#sButton');
-        var strack = document.querySelector('#soundtrack');
-
-        sbutt.addEventListener('mouseenter', playButtonAudio);
-
-        var scene = document.querySelector('#take-preview');
-        if (scene.hasLoaded) {
-            playButtonAudio();
-        } else {
-            scene.addEventListener('click', playButtonAudio);
-        }
-
-        function playButtonAudio() {
-            if (strack.paused) {
-                strack.play();
-                sbutt.setAttribute('material', "src: #soundButton");
-            } else {
-                strack.pause();
-                sbutt.setAttribute('material', "src: #soundOffButton");
-            }
-        }
+        window.open('https://www.yelp.com/biz/angel-nails-holbrook-2', '_blank');
 
     });
 
     function choosePic() {
         let randomNum = Math.floor(Math.random() * myPix.length);
         document.getElementById("my-image").src = myPix[randomNum];
+    }
+
+    var sbutt = document.querySelector('#sButton');
+    var strack = document.querySelector('#soundtrack');
+
+    sbutt.addEventListener('mouseenter', playButtonAudio);
+
+    var scene = document.querySelector('a-scene');
+    if (scene.hasLoaded) {
+        playButtonAudio();
+    } else {
+        scene.addEventListener('click', playButtonAudio);
+    }
+
+    function playButtonAudio() {
+        if (strack.paused) {
+            strack.play();
+            sbutt.setAttribute('material', "src: #soundButton");
+        } else {
+            strack.pause();
+            sbutt.setAttribute('material', "src: #soundOffButton");
+        }
     }
 
 </script>
