@@ -82,6 +82,21 @@
         pointer-events: none;
         color: #cccccc;
     }
+    
+     .ui {
+        background-color:#ffffff;
+        position: absolute;
+        z-index: 100;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 10px 15px 30px;
+        text-align: center;
+        box-sizing: border-box;
+    }
 </style>
 
 <body style='margin : 0px; overflow: hidden;'>
@@ -149,6 +164,8 @@
         <a href="" id="take-savings" title="shavings"><i class="material-icons">catching_pokemon</i></a>
         <a href="" id="take-preview" title="preview"><i class="material-icons">preview</i></a>
     </div>
+    <div class="uimusic" id="containermusic">
+    </div>
 </body>
 
 <script>
@@ -198,7 +215,7 @@
 
     sbutt.addEventListener('mouseenter', playButtonAudio);
 
-    var scene = document.querySelector('#container');
+    var scene = document.querySelector('#containermusic');
     if (scene.hasLoaded) {
         playButtonAudio();
     } else {
