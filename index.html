@@ -14,6 +14,9 @@
     -->
     <script src="https://rawgit.com/donmccurdy/aframe-extras/v6.0.1/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+      <script src="components/flickr-search.js"></script>
+    <script src="components/rotate-on-click.js"></script>
+ 
   </head>
   <body>
     <a-scene id="scene">
@@ -23,7 +26,7 @@
 
       </a-assets>
       <!-- To generate an API key, visit: https://www.flickr.com/services/api/explore/flickr.photos.search -->
-      <a-flickr-carousel method: 'flickr.photos.search'
+      <a-flickr-carousel search="hack"
                          api-key="948edbb374dc9fbc0b54c54bc07be9b4"
                          radius="2.5"
                          position="0 0.30 0"
