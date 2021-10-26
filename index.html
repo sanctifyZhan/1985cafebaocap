@@ -1,10 +1,14 @@
-<!DOCTYPE html>
 <html>
-  
-<!-- Mirrored from uveavanto.github.io/aframe-flickr-carousel/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2017 15:36:54 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
 <head>
-    <title>A-Frame Flickr Carousel</title>
+    <title>
+        Angel Nails 781MA
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable">
+
     <script src="https://aframe.io/releases/1.0.2/aframe.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- include ar.js -->
@@ -14,38 +18,221 @@
     -->
     <script src="https://rawgit.com/donmccurdy/aframe-extras/v6.0.1/dist/aframe-extras.loaders.min.js"></script>
     <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
-      <script src="components/flickr-search.js"></script>
-    <script src="components/rotate-on-click.js"></script>
- 
-  </head>
-  <body>
-    <a-scene id="scene">
-      <a-assets id="assets">
-        <img id="skybox" src="Assets/03.jpg"/>
-        <img id="floor" src="Assets/01.jpg"/>
 
-      </a-assets>
-      <!-- To generate an API key, visit: https://www.flickr.com/services/api/explore/flickr.photos.search -->
-      <a-flickr-carousel search="hack"
-                         api-key="948edbb374dc9fbc0b54c54bc07be9b4"
-                         radius="2.5"
-                         position="0 0.30 0"
-                         rotation="0 18 0"></a-flickr-carousel>
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+    .overlay {
+        position: fixed;
+        /* Sit on top of the page content */
+        width: 100%;
+        /* Full width (cover the whole page) */
+        height: 100%;
+        /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("backgroundWhile.PNG");
+        /*   background-color:#ffffff; Black background with opacity */
+        z-index: 2;
+        /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer;
+        /* Add a pointer on hover */
+    }
+
+    .ui {
+        position: absolute;
+        z-index: 100;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 10px 15px 30px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .ui a {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background-color: #ffffff;
+        line-height: 100%;
+        color: #303030;
+        margin: 10px 3px;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .ui a i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .ui a:active {
+        color: #ff0000;
+    }
+
+    .ui a.disabled {
+        pointer-events: none;
+        color: #cccccc;
+    }
+
+    .uimusic {
+        position: absolute;
+        z-index: 100;
+        top: 65%;
+        right: 1%;
+        width: 11%;
+        height: 6%;
+        margin: 0;
+        padding: 10px 15px 30px;
+        box-sizing: border-box;
+    }
+</style>
+
+<body style='margin : 0px; overflow: hidden;'>
+
+    <a-scene embedded arjs='debugUIEnabled:false; trackingMethod: best;'
+        device-orientation-permission-ui="enabled: false" vr-mode-ui="enabled: false" loading-screen="enabled:false"
+        precision: mediump>
+        <a-assets>
+            <video id="vid" src="w1.mp4" preload="auto" respose-type="arraybuffer" playsinline crossorigin
+                webkit-playsinline muted autoplay>
+            </video>
+
+            <img id="soundButton" src="sound.jpeg">
+            <img id="soundOffButton" src="offsound.png">
+            <audio id="soundtrack" src="Doo Bee Di Boy.mp3" preload="auto"></audio>
+
+            <img id="my-image">
+        </a-assets>
 
 
-      <a-entity id="cameraContainer" camera look-controls position="0 1.6 0">
-        <a-entity cursor="fuse: false"></a-entity>
-      </a-entity>
-      <a-sky src="#skybox" position="0 -1 0" rotation="0 45 0"></a-sky>
 
-      <a-entity position="0 0 0" rotation="-90 0 0" geometry="primitive: plane; width: 50; height: 50;" static-body material="src: #floor; repeat: 1 1; transparent: true; color:skyblue;"></a-entity>
+        <a-image src="#my-image" id="aimage" position="0 0 -5" visible="false" height="0.9" width="1.2">
+        </a-image>
+        <a-plane class="link" id="sButton" src="#soundOffButton" height="15" width="15" rotation="0 0 0"
+            position="57 -42 -300" material="transparent:true" event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1" event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1">
+        </a-plane>
 
+        <a-text value="Angel Nails★" negate="false" scale="1 1 1" position="-0.6 2.4 -4" color="red">
+        </a-text>
 
-      <a-light type="point" position="0 6 0" intensity="4"></a-light>
-    <a-light type="ambient" intensity="1"></a-light>
+        <a-text value="WeedDay" negate="false" scale="1 1 1" position="-0.5 2.3 -5" color="yellow">
+        </a-text>
+
+        <a-text value="9:30 ~ 19:00" negate="false" scale="1 1 1" position="-0.7 2.1 -5" color="orange">
+        </a-text>
+
+        <a-text value="Sartuday" negate="false" scale="1 1 1" position="-0.5 1.7 -5" color="yellow">
+        </a-text>
+
+        <a-text value="9:00 ~ 19:00" negate="false" scale="1 1 1" position="-0.7 1.5 -5" color="orange">
+        </a-text>
+
+        <a-text value="Sunday" negate="false" scale="1 1 1" position="-0.5 1.1 -5" color="yellow">
+        </a-text>
+
+        <a-text value="11:00 ~ 17:00" negate="false" scale="1 1 1" position="-0.7 0.9 -5" color="orange">
+        </a-text>
+
+        <a-text value="781 S Franklin St Holbrook, MA 02343" negate="false" scale="1 1 1" position="-2 -1 -10"
+            color="red">
+        </a-text>
+
+        <a-video src="#vid" position="-0.02 1.3 -3" rotation="-180 0 0" scale="1.6 2.7 1"
+            material="shader: chromakey; color: 0.1 0.9 0.2"></a-video>
+
+        <a-entity camera position="0 1.2 0">
+
+        </a-entity>
 
     </a-scene>
-  </body>
+    <div class="ui" id="container">
+        <a href="" id="take-share" title="share"><i class="material-icons">share</i></a>
+        <a href="" id="take-savings" title="shavings"><i class="material-icons">catching_pokemon</i></a>
+        <a href="" id="take-preview" title="preview"><i class="material-icons">preview</i></a>
+    </div>
+    <div class="uimusic" id="containermusic">
+    </div>
+</body>
 
-<!-- Mirrored from uveavanto.github.io/aframe-flickr-carousel/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Mar 2017 15:36:58 GMT -->
+<script>
+    $('#container').hide();
+    let video = document.getElementById("vid");
+    video.play();
+
+    document.getElementsByTagName("video")[0].addEventListener("ended", yourFunction, false);
+    function yourFunction(e) {
+        $('#container').fadeIn('slow');
+    }
+
+    let take_share_btn = document.querySelector('#take-share');
+    let take_savings_btn = document.querySelector('#take-savings');
+    let take_preview_btn = document.querySelector('#take-preview');
+    let sceneElement = document.querySelector("a-scene");
+    let myPix = new Array("Assets/01.jpg", "Assets/02.jpg", "Assets/03.jpg", "Assets/04.jpg", "Assets/05.jpg", "Assets/06.jpg", "Assets/07.jpg", "Assets/08.jpg", "Assets/09.jpg", "Assets/10.jpg", "Assets/11.jpg", "Assets/12.jpg");
+    var myobj = document.getElementById("container");
+    let audio = new Audio('captureSound.mp3');
+
+    take_share_btn.addEventListener("click", function (e) {
+        window.open('https://www.facebook.com/angelnailsholbrook', '_blank');
+    });
+
+    take_savings_btn.addEventListener("click", function (e) {
+        let imageTrue = document.getElementsByTagName("a-image")[0];
+        audio.play();
+        imageTrue.setAttribute('visible', true);
+        choosePic();
+        sceneElement.classList.add("overlay");
+        e.preventDefault();
+        myobj.remove();
+    });
+
+    take_preview_btn.addEventListener("click", function (e) {
+        window.open('https://www.yelp.com/biz/angel-nails-holbrook-2', '_blank');
+
+    });
+
+    function choosePic() {
+        let randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("my-image").src = myPix[randomNum];
+    }
+
+    var sbutt = document.querySelector('#sButton');
+    var strack = document.querySelector('#soundtrack');
+
+    sbutt.addEventListener('mouseenter', playButtonAudio);
+
+    var scene = document.querySelector('#containermusic');
+    if (scene.hasLoaded) {
+        playButtonAudio();
+    } else {
+        scene.addEventListener('click', playButtonAudio);
+    }
+
+    function playButtonAudio() {
+        if (strack.paused) {
+            strack.play();
+            sbutt.setAttribute('material', "src: #soundButton");
+        } else {
+            strack.pause();
+            sbutt.setAttribute('material', "src: #soundOffButton");
+        }
+    }
+
+</script>
+
 </html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
