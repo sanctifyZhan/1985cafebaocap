@@ -102,15 +102,6 @@
         </a-assets>
 
             
-            <a-box 
-                   height="2" width="0.25"
-        position="0 1.5 -2" 
-        src="#soundButton"
-        color="blue"
-        opacity="0.5"
-        shadow>
-      </a-box>
-            
 
         <a-image src="#my-image" id="aimage" position="0 0 -5" visible="false" height="0.9" width="1.2">
         </a-image>
@@ -207,7 +198,7 @@
 
     sbutt.addEventListener('mouseenter', playButtonAudio);
 
-    var scene = document.querySelector('a-box');
+    var scene = document.querySelector('#container');
     if (scene.hasLoaded) {
         playButtonAudio();
     } else {
