@@ -49,6 +49,16 @@
                          rotation="0 18 0"></a-flickr-carousel>
       
       <a-entity id="cameraContainer" camera look-controls position="0 1.6 0">
+        
+         <a-cursor id="cursor"
+          color="white"
+
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__1="_event: mouseenter; color: cyan"
+          event-set__2="_event: mouseleave; color: white"
+          fuse="true"
+          raycaster="objects: .link"></a-cursor>
+        
         <a-entity cursor="fuse: false"></a-entity>
       </a-entity>
       <a-sky src="#skybox" position="0 -1 0" rotation="0 45 0"></a-sky>
