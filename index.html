@@ -48,19 +48,18 @@
                          position="0 2.55 0"
                          rotation="0 18 0"></a-flickr-carousel>
       
-      <a-entity id="cameraContainer" camera look-controls position="0 1.6 0">
-        
-         <a-cursor id="cursor"
-          color="white"
+ <a-entity camera look-controls>
+        <a-cursor id="cursor"
+          color="red"
 
           animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
           event-set__1="_event: mouseenter; color: cyan"
           event-set__2="_event: mouseleave; color: white"
           fuse="true"
           raycaster="objects: .link"></a-cursor>
-        
+  </a-entity>
       
-      </a-entity>
+      
       <a-sky src="#skybox" position="0 -1 0" rotation="0 45 0"></a-sky>
 
       <a-entity position="0 0 0" rotation="-90 0 0" geometry="primitive: plane; width: 50; height: 50;" static-body material="src: #floor; repeat: 1 1; transparent: true; color:skyblue;"></a-entity>
