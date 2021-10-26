@@ -100,7 +100,16 @@
 
             <img id="my-image">
         </a-assets>
-        <a-box id ="haii" material="src: #soundButton">
+
+            
+            <a-box 
+        position="0 1.5 -2" 
+        multisrc="srcs:#soundButton,#soundOffButton"
+        color="blue"
+        opacity="0.5"
+        shadow>
+      </a-box>
+            
 
         <a-image src="#my-image" id="aimage" position="0 0 -5" visible="false" height="0.9" width="1.2">
         </a-image>
