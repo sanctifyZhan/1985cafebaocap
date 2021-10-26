@@ -20,6 +20,7 @@
     <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
 
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
 </head>
 <style>
     .overlay {
@@ -95,46 +96,47 @@
         box-sizing: border-box;
     }
     
-    /*Slider*/
-.slider > div {
-  display:block; width:100%; padding: 50px 0;
-  background: #FF0;
-  text-align: center; font-size: 2em;
+#carousel {
+  z-index: 99;
+  top: 80%;
+  left: 40%;
+  margin: 0px;
+  position: fixed;
+  width: 20%
 }
 
-/* Navigation */
-.slider-nav { text-align: center; }
-.slider-nav > div {
-  display:inline-block;
-  width:30px; height: 30px; margin: 0 5px; padding: 3px 0;
-  text-align: center; font-size:2em;
-  background: #FC0; cursor: pointer;
+#blue {
+  width: 30px;
+  height: 50px;
+  background-color: blue;
+  float: left;
 }
-    
+
+#red {
+  width: 30px;
+  height: 50px;
+  background-color: red;
+  float: right;
+} 
 </style>
 
 <body style='margin : 0px; overflow: hidden;'>
-
-    
-    <div class='slider'>
-  <div>Slide 1</div>
-  <div>Slide 2</div>
-  <div>Slide 3</div>
-  <div>Slide 4</div>
-  <div>Slide 5</div>
-</div>
-
-<div class='slider-nav'>
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-  <div>4</div>
-  <div>5</div>
+	
+<div id="carousel">
+  <div id="blue">
+    blu
+  </div>
+  <span>&nbsp&nbsp&nbsp </span>
+  <div id="red">
+    red
+  </div>
 </div>
     
     <a-scene embedded arjs='debugUIEnabled:false; trackingMethod: best;'
         device-orientation-permission-ui="enabled: false" vr-mode-ui="enabled: false" loading-screen="enabled:false"
         precision: mediump>
+	    
+	    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
         <a-assets>
             <video id="vid" src="w1.mp4" preload="auto" respose-type="arraybuffer" playsinline crossorigin
                 webkit-playsinline muted autoplay>
@@ -263,16 +265,14 @@
         }
     }
 
-    
-    $('.slider').slick({
-  arrows:false, dots: false, infinite:true, speed:500,
-  autoplay:true, autoplaySpeed: 3000, slidesToShow:1, slidesToScroll:1
-});
-//On click of slider-nav childern,
-//Slick slider navigate to the respective index.
-$('.slider-nav > div').click(function() {
-	$('.slider').slick('slickGoTo',$(this).index());
+ document.querySelector("#red").addEventListener("click", () => {
+  document.querySelector("a-box").setAttribute("color", "red");
 })
+
+document.querySelector("#blue").addEventListener("click", () => {
+  document.querySelector("a-box").setAttribute("color", "blue");
+})
+
     
 </script>
 
