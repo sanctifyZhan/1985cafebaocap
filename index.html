@@ -94,10 +94,44 @@
         padding: 10px 15px 30px;
         box-sizing: border-box;
     }
+    
+    /*Slider*/
+.slider > div {
+  display:block; width:100%; padding: 50px 0;
+  background: #FF0;
+  text-align: center; font-size: 2em;
+}
+
+/* Navigation */
+.slider-nav { text-align: center; }
+.slider-nav > div {
+  display:inline-block;
+  width:30px; height: 30px; margin: 0 5px; padding: 3px 0;
+  text-align: center; font-size:2em;
+  background: #FC0; cursor: pointer;
+}
+    
 </style>
 
 <body style='margin : 0px; overflow: hidden;'>
 
+    
+    <div class='slider'>
+  <div>Slide 1</div>
+  <div>Slide 2</div>
+  <div>Slide 3</div>
+  <div>Slide 4</div>
+  <div>Slide 5</div>
+</div>
+
+<div class='slider-nav'>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+</div>
+    
     <a-scene embedded arjs='debugUIEnabled:false; trackingMethod: best;'
         device-orientation-permission-ui="enabled: false" vr-mode-ui="enabled: false" loading-screen="enabled:false"
         precision: mediump>
@@ -229,10 +263,18 @@
         }
     }
 
+    
+    $('.slider').slick({
+  arrows:false, dots: false, infinite:true, speed:500,
+  autoplay:true, autoplaySpeed: 3000, slidesToShow:1, slidesToScroll:1
+});
+//On click of slider-nav childern,
+//Slick slider navigate to the respective index.
+$('.slider-nav > div').click(function() {
+	$('.slider').slick('slickGoTo',$(this).index());
+})
+    
 </script>
 
 </html>
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
+
