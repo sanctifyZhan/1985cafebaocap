@@ -1,63 +1,56 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <html>
-  <head>
-    <title>A-Frame Flickr Carousel</title>
-    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-    <script src="components/aframe-layout-component.min.js"></script>
-    <script src="components/aframe-look-at-component.min.js"></script>
-    <script src="components/flickr-search.js"></script>
-    <script src="components/rotate-on-click.js"></script>
-    <script src="entities/flickr-carousel.js"></script>
-  </head>
-  <body>
-    <a-scene id="scene">
-      <a-assets id="assets">
-        <img id="skybox" src="Assets/02.jpg"/>
-        <img id="floor" src="Assets/01.jpg"/>
-      </a-assets>
-      <!-- To generate an API key, visit: https://www.flickr.com/services/api/explore/flickr.photos.search -->
+<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<script src="js/aframe.min.js"></script>
+<script src="js/aframe-ar.js"></script>
 
-    <a-flickr-carousel search="gau"
-                         api-key="2dfa02c0916acd9e59e9d9b25cc7ad38"
-                         radius="2.5"
-                         position="0 0.30 0"
-                         rotation="0 18 0"></a-flickr-carousel>
-      <a-flickr-carousel search="gau"
-                         api-key="2dfa02c0916acd9e59e9d9b25cc7ad38"
-                         radius="3"
-                         position="0 0.75 0"
-                         rotation="0 18 0"></a-flickr-carousel>
-       <a-flickr-carousel search="gau"
-                         api-key="2dfa02c0916acd9e59e9d9b25cc7ad38"
-                         radius="2"
-                         position="0 1.2 0"
-                         rotation="0 18 0"></a-flickr-carousel>
-      <a-flickr-carousel search="showimagetest"
-                         api-key="948edbb374dc9fbc0b54c54bc07be9b4"
-                         radius="0.5"
-                         position="0 2.55 0"
-                         rotation="0 18 0"></a-flickr-carousel>
-      <a-flickr-carousel search="gau"
-                         api-key="2dfa02c0916acd9e59e9d9b25cc7ad38"
-                         radius="1"
-                         position="0 2.1 0"
-                         rotation="0 18 0"></a-flickr-carousel>
-      <a-flickr-carousel search="showimagetest"
-                         api-key="948edbb374dc9fbc0b54c54bc07be9b4"
-                         radius="0.5"
-                         position="0 2.55 0"
-                         rotation="0 18 0"></a-flickr-carousel>
-      
- <a-entity id="cameraContainer" camera look-controls position="0 1.6 0">
-        <a-entity cursor="fuse: false"></a-entity>
-      </a-entity>
-      <a-sky src="#skybox" position="0 -1 0" rotation="0 45 0"></a-sky>
- 
-      <a-entity position="0 0 0" rotation="-90 0 0" geometry="primitive: plane; width: 50; height: 50;" static-body material="src: #floor; repeat: 1 1; transparent: true; color:skyblue;"></a-entity>
+<!-- support 3D text -->
+<script src="js/aframe-text-geometry-component.min.js"></script>
 
+<body style="margin: 0px; overflow: hidden;">
 
-      <a-light type="point" position="0 6 0" intensity="4"></a-light>
-    <a-light type="ambient" intensity="1"></a-light>
-    </a-scene>
-  </body>
+<a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+
+	<a-assets>
+		<a-asset-item id="exoFont" src="fonts/exoBlack.typeface.json"></a-asset-item>
+		<img id="pixels" src="images/pixels.png" />
+	</a-assets>
+
+	<!-- 2D text -->
+	<a-marker type="pattern" url="data/kanji.patt">
+		
+		<!-- positioning a plane directly below text for increased visibility; need to adjust position to avoid z-fighting.  -->
+		<a-plane color="white" rotation="-90 0 0" position="0 -0.25 0" width="3" material="transparent: true; opacity: 0.90"></a-plane>
+
+		<!-- for more properties, see https://github.com/aframevr/aframe/blob/master/docs/components/text.md -->
+		<a-text value="Hello, world!" font="fonts/Exo2Bold.fnt" color="red" rotation="-90 0 0" align="center" scale="2 2 2"></a-text>
+		
+		<!-- positioning a second copy to attempt drop-shadow effect; need to adjust position to avoid z-fighting -->
+		<!-- <a-text value="Hello, world!" font="fonts/Exo2Bold.fnt" color="black" rotation="-90 0 0" align="center" scale="2 2 2" position="0.01 -0.2 0"></a-text> -->
+
+		
+		<!-- avoiding z-fighting is difficult; may want to render canvas to text instead -->
+
+	</a-marker>
+
+	<!-- 3D text -->
+	<a-marker type="pattern" url="data/hiro.patt">
+
+		<!-- 
+			using aframe-text-geometry component
+			can set: bevelSize, bevelThickness, curveSegments, font, height, size, style, value.
+			alignment (centering) may be tricky; try calculating bounding box and repositioning.
+			for more info, see: https://www.npmjs.com/package/aframe-text-geometry-component
+		 -->
+		<a-entity text-geometry="value: Hello, world!; font: #exoFont;"
+			material="color: yellow; src: #pixels; repeat: 0.5 0.5;" 
+			rotation="-90 0 0">
+		</a-entity>
+
+	</a-marker>
+
+    <a-entity camera></a-entity>
+    
+</a-scene>
+</body>
 </html>
